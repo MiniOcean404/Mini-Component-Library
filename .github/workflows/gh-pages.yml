@@ -1,17 +1,25 @@
 name: github pages
-on:
+on: # 监听 master 分支上的 push 事件
   push:
     branches:
       - master # default branch
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-18.04 # 构建环境使用 ubuntu
     steps:
-      - uses: actions/checkout@v2
-      - run: yarn install
-      - run: yarn build:dumi
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: checkout
+        uses: actions/checkout@v2.3.1
+
+      - name: Install and Build
+        run: |
+          yarn install
+          yarn  build:lib
+
+      - name: Deploy # 将打包内容发布到 github page
+        uses: JamesIves/github-pages-deploy-action@3.5.9
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          ACCESS_TOKEN: ${{ secrets.COMPONENTS_LIBRARY }} # COMPONENTS_LIBRARY 是我的 secret 名称，需要替换成你的
+          BRANCH: master # 哪个分支
+          FOLDER: packages/mini-ocean/lib # 打包的目录文件
+          TARGET_FOLDER: components-lib # 打包的文件将放到静态服务器 components-lib 目录下
+          REPOSITORY_NAME: https://miniocean404.github.io/mini-component-library/ # 这是我的 github page 仓库
