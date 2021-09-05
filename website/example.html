@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<!-- 引入Vue3 -->
+		<script src="https://unpkg.com/vue@next"></script>
+		<!-- 引入打包后的文件 -->
+		<script src="../dist/miniocean-ui.global.js"></script>
+		<!-- <script src="../dist/iife.js"></script> -->
+		<style></style>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script>
+			const { createApp, reactive, computed, watchEffect } = Vue;
+			const { ElButton } = MiniOcean;
+
+			const MyComponent = {
+				template: `
+        <my-button />
+           <sfc-button />
+        <jsx-button />`,
+			};
+
+			createApp(MyComponent).use(MiniOcean).mount('#app');
+		</script>
+	</body>
+</html>

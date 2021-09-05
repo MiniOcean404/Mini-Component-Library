@@ -1,0 +1,136 @@
+body,
+div,
+span,
+header,
+footer,
+nav,
+section,
+aside,
+article,
+ul,
+dl,
+dt,
+dd,
+li,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+b,
+textarea,
+button,
+input,
+select,
+figure,
+figcaption {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+	text-decoration: none;
+	font-family: 'Microsoft Yahei', sans-serif;
+	font-style: normal;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-font-smoothing: antialiased;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+//标题样式一
+.titleStyle::before {
+	display: inline-block;
+	position: relative;
+	bottom: -2.5rpx;
+	margin-right: 10rpx;
+	width: 4rpx;
+	height: 30rpx;
+	vertical-align: initial;
+	content: '';
+}
+
+.select::after {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin-left: 5rpx;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	width: 0;
+	height: 0;
+	content: '';
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+//自定义
+.selfCon {
+	display: flex;
+	flex-direction: column;
+	justify-content: top;
+	background: #f5f5f5 !important;
+
+	.saveBtn {
+		margin: 0 auto;
+		border-radius: 5px;
+		width: 670rpx;
+		height: 86rpx;
+		line-height: 86rpx;
+		font-size: 32rpx;
+		color: #fff;
+	}
+
+	.addBtn {
+		border: 1px solid #a8aaae;
+		border-radius: 5px;
+		width: 244rpx;
+		height: 60rpx;
+		background: #f0f4f6;
+		opacity: 0.7;
+		line-height: 60rpx;
+		vertical-align: middle;
+		text-align: center;
+		font-size: 24rpx;
+
+		& > image {
+			margin-right: 20rpx;
+			width: 28rpx;
+			height: 28rpx;
+			vertical-align: middle;
+		}
+	}
+
+	//placeholder 样式
+	.placeClass {
+		color: #9da4b6;
+	}
+}
+
+.triangleRight::after {
+	display: inline-block;
+	border-right: 2px solid #575555;
+	border-top: 2px solid #575555;
+	width: 7px;
+	height: 7px;
+	content: '';
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.downArrow::after {
+	display: inline-block;
+	border-right: 2px solid #999;
+	border-top: 2px solid #999;
+	width: 6px;
+	height: 6px;
+	content: '';
+	-webkit-transform: rotate(45deg);
+	transform: rotate(135deg);
+}

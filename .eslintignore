@@ -1,0 +1,24 @@
+node_modules
+dist
+
+*.sh
+*.md
+*.scss
+*.woff
+*.ttf
+*.js
+*.lock
+
+postcss.config.js
+babel.config.js
+
+tsconfig.json
+package.json
+
+# .eslintignore
+src/utils/popper.js
+src/utils/date.js
+examples/play
+lib
+coverage
+src/index.js
