@@ -4,7 +4,7 @@ const fs = require('fs');
 const msgPath = process.argv[2];
 
 const commitRE =
-	/^(revert:)?(feat|fix|docs|dx|style|refactor|perf|test|workflow|build|ci|chore|types|wip|release)(\(.+\))?(.{1,10})?: .{1,50}/;
+	/^(revert: )?(feat|fix|docs|dx|style|refactor|perf|test|workflow|build|ci|chore|types|wip|release|other)(\(.+\))?(.{0,10})?: .{0,50}/;
 const mergeRe = /^(Merge pull request|Merge branch)/;
 
 const msg = fs.readFileSync(msgPath, 'utf-8').trim();
