@@ -22,4 +22,4 @@ jobs:
           BRANCH: master # 哪个分支
           FOLDER: packages/mini-ocean/lib # 打包的目录文件
           TARGET_FOLDER: components-lib # 打包的文件将放到静态服务器 components-lib 目录下
-          REPOSITORY_NAME: https://miniocean404.github.io/mini-component-library/ # 这是我的 github page 仓库
+          REPOSITORY_NAME: miniocean404.github.io/mini-component-library # 这是我的 github page 仓库
