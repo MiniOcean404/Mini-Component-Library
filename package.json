@@ -10,6 +10,7 @@
 	"unpkg": "dist/element3-ui.global.js",
 	"jsdelivr": "dist/element3-ui.global.js",
 	"types": "types/index.d.ts",
+	"homepage": "https://miniocean404.github.io/mini-component-library",
 	"scripts": {
 		"clean:lib": "rimraf lib && rimraf es && rimraf dist",
 		"build:lib": "rollup -c ./build/rollup.config.ts",

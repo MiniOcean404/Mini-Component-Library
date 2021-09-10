@@ -11,7 +11,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 
-import { entry, createFileName } from './paths.ts';
+import { entry, createFileName } from './paths';
 
 const name = 'MiniOcean';
 const banner = () => {
@@ -49,7 +49,6 @@ const baseConfig = () => {
 			scss(),
 			vue({
 				target: 'browser',
-				css: true,
 			}),
 			babel({
 				babelHelpers: 'bundled',
