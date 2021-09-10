@@ -35,16 +35,11 @@ jobs:
         run: yarn build:lib
 
       - name: Deploy to GitHub Pages # 将打包内容发布到 github page
-        uses: crazy-max/ghaction-github-pages@v2
+        uses: JamesIves/github-pages-deploy-action@4.1.5
         env:
-          GITHUB_TOKEN: ${{ secrets.COMPONENTS_LIBRARY }} # COMPONENTS_LIBRARY 是我的 secret 名称，需要替换成你的
-        with:
-          # 部署到 gh-pages 分支
-          target_branch: master
-          # 部署目录为的默认输出目录
-          build_dir: ./build/dist/components-lib
-
-          #          BRANCH: master # 发布分支
-          #          FOLDER: packages/mini-ocean/lib # 构建成果所在目录
-          #          TARGET_FOLDER: build/dist/components-lib # 打包的文件将放到静态服务器 components-lib 目录下
+          ACCESS_TOKEN: ${{ secrets.COMPONENTS_LIBRARY }} # COMPONENTS_LIBRARY 是我的 secret 名称，需要替换成你的
+        with: # with 携带的参数
+          branch: gh-pages # 发布分支
+          folder: build # packages/mini-ocean/lib # 构建成果所在目录
+          target-folder: build/dist/components-lib # 分支特定目录
           #在package.json中添加字段：	"homepage": "https://miniocean404.github.io/mini-component-library",
