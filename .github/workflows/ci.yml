@@ -23,5 +23,5 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.COMPONENTS_LIBRARY }} # COMPONENTS_LIBRARY 是我的 secret 名称，需要替换成你的
           BRANCH: master # 发布分支
           FOLDER: packages/mini-ocean/lib # 构建成果所在目录
-          TARGET_FOLDER: components-lib # 打包的文件将放到静态服务器 components-lib 目录下
-          # REPOSITORY_NAME: github.com/MiniOcean404/mini-component-library # 这是我的 github page 仓库
+          TARGET_FOLDER: build/dist/components-lib # 打包的文件将放到静态服务器 components-lib 目录下
+          #在package.json中添加字段：	"homepage": "https://miniocean404.github.io/mini-component-library",
