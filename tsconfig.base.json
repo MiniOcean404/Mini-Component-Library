@@ -3,6 +3,7 @@
 		"baseUrl": ".", // 工作根目录
 		"paths": {
 			"@/*": ["./*"],
+			"build/*": ["build/*"],
 			"packages/*": ["packages/*"]
 		},
 		"module": "commonjs",
