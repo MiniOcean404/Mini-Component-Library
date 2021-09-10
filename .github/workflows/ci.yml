@@ -19,8 +19,9 @@ jobs:
 
       - name: Deploy # 将打包内容发布到 github page
         uses: JamesIves/github-pages-deploy-action@3.5.9
-        with:
+        env:
           ACCESS_TOKEN: ${{ secrets.COMPONENTS_LIBRARY }} # COMPONENTS_LIBRARY 是我的 secret 名称，需要替换成你的
+        with:
           BRANCH: master # 发布分支
           FOLDER: packages/mini-ocean/lib # 构建成果所在目录
           TARGET_FOLDER: build/dist/components-lib # 打包的文件将放到静态服务器 components-lib 目录下
