@@ -11,8 +11,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 
-// @ts-ignore
-import { entry, createFileName } from './paths.ts';
+import { entry, createFileName } from './paths';
 
 const name = 'MiniOcean';
 const banner = () => {
