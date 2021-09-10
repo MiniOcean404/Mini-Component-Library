@@ -31,7 +31,7 @@ jobs:
         run: yarn --frozen-lockfile
 
       # 运行构建脚本
-      - name: Build VuePress site
+      - name: Build
         run: yarn build:lib
 
       - name: Deploy to GitHub Pages # 将打包内容发布到 github page
@@ -41,8 +41,8 @@ jobs:
         with:
           # 部署到 gh-pages 分支
           target_branch: master
-          # 部署目录为 VuePress 的默认输出目录
-          build_dir: build/dist/components-lib
+          # 部署目录为的默认输出目录
+          build_dir: ./build/dist/components-lib
 
           #          BRANCH: master # 发布分支
           #          FOLDER: packages/mini-ocean/lib # 构建成果所在目录
