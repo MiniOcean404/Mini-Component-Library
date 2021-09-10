@@ -28,6 +28,6 @@
 		"skipLibCheck": true,
 		"allowJs": true
 	},
-	"include": ["build/**/*", "packages/**/*", "types/**/*", "**/*.ts", "**/*.tsx"],
+	"include": ["build/**/*", "packages/**/*", "types/**/*", "**/*.ts", "**/*.tsx", "**/*.config.ts"],
 	"exclude": ["node_modules", "**/__tests__", "dist/**", "packages/*/es", "packages/*/lib"]
 }
