@@ -35,6 +35,7 @@ jobs:
         run: yarn build:lib
 
       - name: Deploy to GitHub Pages # 将打包内容发布到 github page
+        # https://github.com/marketplace/actions/deploy-to-github-pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         env:
           ACCESS_TOKEN: ${{ secrets.COMPONENTS_LIBRARY }} # COMPONENTS_LIBRARY 是我的 secret 名称，需要替换成你的
