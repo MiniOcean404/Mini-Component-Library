@@ -40,6 +40,7 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.COMPONENTS_LIBRARY }} # COMPONENTS_LIBRARY 是我的 secret 名称，需要替换成你的
         with: # with 携带的参数
           branch: gh-pages # 发布分支
-          folder: build # packages/mini-ocean/lib # 构建成果所在目录
-          target-folder: build/dist/components-lib # 分支特定目录
+          folder: packages/mini-ocean/lib # packages/mini-ocean/lib # 构建成果所在目录
+          target-folder: build/dist/components-lib # 将编译后的文件移动到分支特定目录
+          token: ${{ secrets.COMPONENTS_LIBRARY }}
           #在package.json中添加字段：	"homepage": "https://miniocean404.github.io/mini-component-library",
