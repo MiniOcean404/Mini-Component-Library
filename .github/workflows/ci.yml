@@ -5,24 +5,46 @@ on: # 监听 master 分支上的 push 事件
       - master # default branch
 jobs:
   deploy:
-    runs-on: ubuntu-18.04 # 构建环境使用 ubuntu
+    runs-on: ubuntu-20.04 # 构建环境使用 ubuntu
     steps:
       - name: checkout
         uses: actions/checkout@v2.3.1
 
-      - name: Install and Build
-        run: |
-          yarn  install
-          yarn  build:lib
-        env:
-          CI: true
-
-      - name: Deploy # 将打包内容发布到 github page
-        uses: JamesIves/github-pages-deploy-action@3.5.9
-        env:
-          ACCESS_TOKEN: ${{ secrets.COMPONENTS_LIBRARY }} # COMPONENTS_LIBRARY 是我的 secret 名称，需要替换成你的
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
         with:
-          BRANCH: master # 发布分支
-          FOLDER: packages/mini-ocean/lib # 构建成果所在目录
-          TARGET_FOLDER: build/dist/components-lib # 打包的文件将放到静态服务器 components-lib 目录下
+          node-version: '14' # 选择要使用的 node 版本
+
+      - name: Cache dependencies # 缓存 node_modules
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # 如果缓存没有命中，安装依赖
+      - name: Install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn --frozen-lockfile
+
+      # 运行构建脚本
+      - name: Build VuePress site
+        run: build:lib
+
+      - name: Deploy to GitHub Pages # 将打包内容发布到 github page
+        uses: crazy-max/ghaction-github-pages@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.COMPONENTS_LIBRARY }} # COMPONENTS_LIBRARY 是我的 secret 名称，需要替换成你的
+        with:
+          # 部署到 gh-pages 分支
+          target_branch: master
+          # 部署目录为 VuePress 的默认输出目录
+          build_dir: build/dist/components-lib
+
+          #          BRANCH: master # 发布分支
+          #          FOLDER: packages/mini-ocean/lib # 构建成果所在目录
+          #          TARGET_FOLDER: build/dist/components-lib # 打包的文件将放到静态服务器 components-lib 目录下
           #在package.json中添加字段：	"homepage": "https://miniocean404.github.io/mini-component-library",
